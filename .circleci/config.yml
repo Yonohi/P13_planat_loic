@@ -23,6 +23,8 @@ workflows:
   main:
     jobs:
       - build
+      - python/test:
+          test-tool: pytest
 #workflows:
 #  main:
 #    jobs:
