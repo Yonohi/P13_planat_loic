@@ -19,12 +19,16 @@ jobs:
           command: |
             pytest --version
           name: Test
+  tests:
+      executor: python/default
+      steps:
+        - python/test:
+            test-tool: pytest
 workflows:
   main:
     jobs:
       - build
-      - python/test:
-          test-tool: pytest
+      - tests
 #workflows:
 #  main:
 #    jobs:
