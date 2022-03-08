@@ -1,3 +1,4 @@
+# fichier de config pour le pipeline
 version: '2.1'
 orbs:
   python: circleci/python@2.0.2
