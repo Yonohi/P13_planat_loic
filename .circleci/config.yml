@@ -10,7 +10,10 @@ jobs:
       - checkout
       - python/install-packages:
           pkg-manager: pip
-      - run: flake8
+      - run: |
+          flake8
+          pytest
+
 workflows:
   main:
     jobs:
