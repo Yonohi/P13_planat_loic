@@ -10,8 +10,12 @@ jobs:
       - checkout
       - python/install-packages:
           pkg-manager: pip
-      - run: flake8
-      - run: pytest
+      - run:
+          name: Linting
+          command: flake8
+      - run:
+          name: Tests (pytest)
+          command: pytest
 
 workflows:
   main:
