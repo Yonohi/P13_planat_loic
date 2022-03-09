@@ -2,13 +2,18 @@ version: '2.1'
 orbs:
   python: circleci/python@2.0.2
 
-workflows:
-  lint-tests:
-    jobs:
-      - python/test:
-          args: '-r requirements.txt'
+jobs:
+  build&tests:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
           pkg-manager: pip
-          test-tool: pytest
+      - run: flake8
+workflows:
+  main:
+    jobs:
+      - build&tests
 ## Use the latest 2.1 version of CircleCI pipeline process engine.
 ## See: https://circleci.com/docs/2.0/configuration-reference
 #version: 2.1
