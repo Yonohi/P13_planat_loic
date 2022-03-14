@@ -30,6 +30,11 @@ workflows:
           # obligatoire pour docker
           # plus d'info: https://wiki.bash-hackers.org/syntax/pe
           image: ${CIRCLE_PROJECT_USERNAME,,}/p13
+          # Remarques:
+          # le tag est automatiquement mis avec la valeur $CIRCLE_SHA1
+          # Dans les paramètre du projet dans circleci définir les variables:
+          #   DOCKER_LOGIN
+          #   DOCKER_PASSWORD
 
 
 # Extra:
