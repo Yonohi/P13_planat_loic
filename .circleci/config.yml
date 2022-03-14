@@ -26,8 +26,8 @@ workflows:
     jobs:
       - lint_tests
       - docker/publish:
-          image: $CIRCLE_PROJECT_USERNAME/P13/$CIRCLE_SHA1
-          
+          image: $CIRCLE_PROJECT_USERNAME/P13
+
 
 # Extra:
 # Pour voir d'autres manières pour s'authentifier sur docker hub
