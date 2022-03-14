@@ -26,7 +26,7 @@ workflows:
     jobs:
       - lint_tests
       - docker/publish:
-          image: ${CIRCLE_PROJECT_USERNAME,,}/P13
+          image: ${CIRCLE_PROJECT_USERNAME,,}/p13
 
 
 # Extra:
