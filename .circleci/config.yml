@@ -27,8 +27,7 @@ workflows:
       - lint_tests
       - docker/publish:
           image: $CIRCLE_PROJECT_USERNAME/P13/$CIRCLE_SHA1
-          docker-password: $DOCKER_PASSWORD
-          docker-username: $DOCKER_LOGIN
+          
 
 # Extra:
 # Pour voir d'autres manières pour s'authentifier sur docker hub
