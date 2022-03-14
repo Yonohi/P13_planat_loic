@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Tests (pytest)
           command: pytest
-# Pour les variables built-in: https://circleci.com/docs/2.0/variables/
+
 workflows:
   main:
     jobs:
@@ -29,14 +29,14 @@ workflows:
           # le format ${VARIABLE,,} met la variable en minuscule
           # obligatoire pour docker
           # plus d'info: https://wiki.bash-hackers.org/syntax/pe
+          # Les variables built-in: https://circleci.com/docs/2.0/variables/
           image: ${CIRCLE_PROJECT_USERNAME,,}/p13
           # Remarques:
           # le tag est automatiquement mis avec la valeur $CIRCLE_SHA1
           # Dans les paramètre du projet dans circleci définir les variables:
           #   DOCKER_LOGIN
           #   DOCKER_PASSWORD
-
-
-# Extra:
+          requires:
+            - lint_tests
 # Pour voir d'autres manières pour s'authentifier sur docker hub
 #       https://circleci.com/docs/2.0/private-images/
