@@ -26,6 +26,9 @@ workflows:
     jobs:
       - lint_tests
       - docker/publish:
+          # le format ${VARIABLE,,} met la variable en minuscule
+          # obligatoire pour docker
+          # plus d'info: https://wiki.bash-hackers.org/syntax/pe
           image: ${CIRCLE_PROJECT_USERNAME,,}/p13
 
 
