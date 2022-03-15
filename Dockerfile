@@ -3,3 +3,5 @@
 # Remarque : une image django n'est apparemment pas souhaitable,
 # on nous conseille de faire usage de python
 FROM python:3.8
+RUN pip install -r requirements.txt
+CMD python3 manage.py runserver
