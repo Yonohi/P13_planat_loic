@@ -14,4 +14,4 @@ COPY . .
 # Remarque: si on met EXPOSE 8000, on ne peut apparemment pas accéder au port
 # de l'extérieur, il n'est pas 'publié', il faudra donc utiliser dans notre
 # commande docker l'argument -p <host_port>:<container_port>
-CMD python3 manage.py runserver 0.0.0.0:8000
+CMD python3 manage.py runserver 8000
