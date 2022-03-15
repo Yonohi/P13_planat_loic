@@ -6,5 +6,5 @@ FROM python:3.8
 COPY requirements.txt
 # On pourrait rajouter '&& rm requirements.txt' pour supprimer le fichier
 RUN pip install -r requirements.txt
-COPY src
+COPY ..
 CMD python3 manage.py runserver
