@@ -11,5 +11,7 @@ COPY requirements.txt .
 # On pourrait rajouter '&& rm requirements.txt' pour supprimer le fichier
 RUN pip install -r requirements.txt
 COPY . .
-EXPOSE 8000
+# Remarque: si on met EXPOSE 8000, on ne peut apparemment pas accéder au port
+# de l'extérieur, il n'est pas 'publié', il faudra donc utiliser dans notre
+# commande docker l'argument -p <host_port>:<container_port>
 CMD python3 manage.py runserver
