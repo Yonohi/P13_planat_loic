@@ -5,10 +5,13 @@ orbs:
   python: circleci/python@2.0.2
   # https://circleci.com/developer/orbs/orb/circleci/docker
   docker: circleci/docker@2.0.3
+  # https://circleci.com/developer/orbs/orb/circleci/heroku
+  heroku: circleci/heroku@1.2.6
 
 # Remarque: pas le droit au caractère &
 jobs:
   lint_tests:
+    # image officielle Circle CI CIMG Python Docker
     executor: python/default
     steps:
       - checkout
@@ -38,5 +41,9 @@ workflows:
           #   DOCKER_PASSWORD
           requires:
             - lint_tests
+      - heroku/deploy-via-git:
+          app-name: OC-lettings-LP
+          requires:
+            - docker/publish
 # Pour voir d'autres manières pour s'authentifier sur docker hub
 #       https://circleci.com/docs/2.0/private-images/
