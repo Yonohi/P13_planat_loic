@@ -50,6 +50,7 @@ workflows:
           requires:
             - lint_tests
       - deploy_heroku:
+          # Penser au Procfile
           requires:
             - docker/publish
 # Pour voir d'autres manières pour s'authentifier sur docker hub
