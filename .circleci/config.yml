@@ -42,7 +42,6 @@ workflows:
           requires:
             - lint_tests
       - heroku/deploy-via-git:
-          app-name: OC-lettings-LP
           requires:
             - docker/publish
 # Pour voir d'autres manières pour s'authentifier sur docker hub
