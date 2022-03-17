@@ -23,6 +23,14 @@ jobs:
       - run:
           name: Tests (pytest)
           command: pytest
+  deploy_heroku:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - run:
+          command: heroku create $HEROKU_APP_NAME
+      - heroku/deploy-via-git
 
 workflows:
   main:
@@ -41,10 +49,7 @@ workflows:
           #   DOCKER_PASSWORD
           requires:
             - lint_tests
-      - heroku/deploy-via-git:
-          pre-deploy:
-            -run:
-              command: heroku create $HEROKU_APP_NAME
+      - deploy_heroku:
           requires:
             - docker/publish
 # Pour voir d'autres manières pour s'authentifier sur docker hub
