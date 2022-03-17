@@ -75,3 +75,6 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+
+###Perso:
+enlever heroku config:set DISABLE_COLLECTSTATIC=1 si besoin de mettre des statics
