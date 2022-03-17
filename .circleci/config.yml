@@ -42,6 +42,7 @@ workflows:
           requires:
             - lint_tests
       - heroku/deploy-via-git:
+          pre-deploy: heroku create $HEROKU_APP_NAME
           requires:
             - docker/publish
 # Pour voir d'autres manières pour s'authentifier sur docker hub
