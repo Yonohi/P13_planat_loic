@@ -84,3 +84,5 @@ DOCKER_LOGIN
 DOCKER_PASSWORD
 HEROKU_API_KEY
 HEROKU_APP_NAME
+
+Procfile: https://devcenter.heroku.com/articles/release-phase
