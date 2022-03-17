@@ -79,3 +79,8 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 ###Perso:
 enlever heroku config:set DISABLE_COLLECTSTATIC=1 si besoin de mettre des statics
 il faut create avant le déploiement sur heroku juste une fois
+variables:
+DOCKER_LOGIN
+DOCKER_PASSWORD
+HEROKU_API_KEY
+HEROKU_APP_NAME
