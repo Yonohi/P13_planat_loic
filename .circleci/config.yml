@@ -29,9 +29,7 @@ jobs:
       - checkout
       - heroku/install
       - run:
-          command: |
-            heroku config:set DISABLE_COLLECTSTATIC=1
-            heroku create -a $HEROKU_APP_NAME
+          command: heroku create $HEROKU_APP_NAME
       - heroku/deploy-via-git
 
 workflows:
