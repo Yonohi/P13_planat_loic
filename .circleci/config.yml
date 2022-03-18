@@ -24,10 +24,12 @@ jobs:
           name: Tests (pytest)
           command: pytest
   deploy_heroku:
-    executor: python/default
+    executor: heroku/default
     steps:
       - checkout
       - heroku/install
+      - run:
+          command: heroku config:set DISABLE_COLLECTSTATIC=1 -a $HEROKU_APP_NAME
       - heroku/deploy-via-git
 
 workflows:
