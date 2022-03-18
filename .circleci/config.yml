@@ -24,7 +24,7 @@ jobs:
           name: Tests (pytest)
           command: pytest
   deploy_heroku:
-    executor: heroku/default
+    executor: python/default
     steps:
       - checkout
       - heroku/install
