@@ -53,5 +53,9 @@ workflows:
           # Penser au Procfile
           requires:
             - docker/publish
+          # https://support.circleci.com/hc/en-us/articles/115015953868-Filter-workflows-by-branch-
+          filters:
+            branches:
+              only: main
 # Pour voir d'autres manières pour s'authentifier sur docker hub
 #       https://circleci.com/docs/2.0/private-images/

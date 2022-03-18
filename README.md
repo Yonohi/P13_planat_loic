@@ -86,3 +86,7 @@ HEROKU_API_KEY
 HEROKU_APP_NAME
 
 Procfile: https://devcenter.heroku.com/articles/release-phase
+
+pour avoir HEROKU_API_KEY:
+soit `heroku authorizations:create` pour la production 
+soit `heroku auth:token` pour le développement
