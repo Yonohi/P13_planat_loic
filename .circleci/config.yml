@@ -49,6 +49,9 @@ workflows:
           #   DOCKER_PASSWORD
           requires:
             - lint_tests
+          filters:
+            branches:
+              only: main
       - deploy_heroku:
           # Penser au Procfile
           requires:
