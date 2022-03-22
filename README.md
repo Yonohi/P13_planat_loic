@@ -90,3 +90,6 @@ Procfile: https://devcenter.heroku.com/articles/release-phase
 pour avoir HEROKU_API_KEY:
 soit `heroku authorizations:create` pour la production 
 soit `heroku auth:token` pour le développement
+
+pour la secret key:
+on pourra donner une valeur via `heroku config:set SECRET_KEY="MY_SECRET_KEY_VALUE"`

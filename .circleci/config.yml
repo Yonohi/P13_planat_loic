@@ -28,6 +28,8 @@ jobs:
     steps:
       - checkout
       - heroku/install
+      - run:
+          command: heroku config:set SECRET_KEY = $SECRET_KEY -a $HEROKU_APP_NAME
       - heroku/deploy-via-git
 
 workflows:
