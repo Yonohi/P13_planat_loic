@@ -31,8 +31,8 @@ jobs:
       - run:
           name: Configuration des variables
           command: |
-          heroku config:set DISABLE_COLLECTSTATIC=1 -a $HEROKU_APP_NAME
-          heroku config:set SECRET_KEY=$SECRET_KEY -a $HEROKU_APP_NAME
+            heroku config:set DISABLE_COLLECTSTATIC=1 -a $HEROKU_APP_NAME
+            heroku config:set SECRET_KEY=$SECRET_KEY -a $HEROKU_APP_NAME
       - heroku/deploy-via-git
 
 workflows:
