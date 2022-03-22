@@ -84,6 +84,9 @@ DOCKER_LOGIN
 DOCKER_PASSWORD
 HEROKU_API_KEY
 HEROKU_APP_NAME
+la secret_key est nécessaire pour le déploiement 
+(sans celle-ci le pipeline passerait mais pas lorsque l'on irait sur le site)
+SECRET_KEY
 
 Procfile: https://devcenter.heroku.com/articles/release-phase
 
@@ -92,4 +95,5 @@ soit `heroku authorizations:create` pour la production
 soit `heroku auth:token` pour le développement
 
 pour la secret key:
-on pourra donner une valeur via `heroku config:set SECRET_KEY="MY_SECRET_KEY_VALUE"`
+on pourra donner une valeur via une variable sur circleci faisant lien avec
+`heroku config:set SECRET_KEY=$SECRET_KEY`
