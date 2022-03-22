@@ -97,3 +97,6 @@ soit `heroku auth:token` pour le développement
 pour la secret key:
 on pourra donner une valeur via une variable sur circleci faisant lien avec
 `heroku config:set SECRET_KEY=$SECRET_KEY`
+
+pour voir si tout est bon pour le deploiement : 
+`heroku run python manage.py check --deploy -a oc-lettings-lp`
