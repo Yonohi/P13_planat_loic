@@ -33,6 +33,7 @@ jobs:
           # Attention DEBUG prend la valeut 'False' et non False
           # Astuce dans settings
           command: |
+            heroku config:set DISABLE_COLLECTSTATIC=1 -a $HEROKU_APP_NAME
             heroku config:set SECRET_KEY=$SECRET_KEY -a $HEROKU_APP_NAME
             heroku config:set DEBUG=False -a $HEROKU_APP_NAME
       - heroku/deploy-via-git
