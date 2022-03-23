@@ -100,3 +100,8 @@ on pourra donner une valeur via une variable sur circleci faisant lien avec
 
 pour voir si tout est bon pour le deploiement : 
 `heroku run python manage.py check --deploy -a oc-lettings-lp`
+
+Pour sentry, 
+il faut lancer le projet avec `python3 manage.py runserver`
+ensuite après avoir créer un compte sur Sentry, aller dans Projects puis Create Projects
+à ce moment là on peut récupérer le DSN affiché et le mettre dans nos variablesil faut un DSN qui est trouvable après s'être inscrit en allant dans settings --> project --> client keys
