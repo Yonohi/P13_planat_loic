@@ -4,8 +4,11 @@ from lettings import urls as lettings_urls
 from profiles import urls as profiles_urls
 from . import views
 
+
 def trigger_error(request):
     division_by_zero = 1 / 0
+    return division_by_zero
+
 
 urlpatterns = [
     path('sentry-debug/', trigger_error),
