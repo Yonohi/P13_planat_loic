@@ -113,6 +113,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 # Help for static
 # https://devcenter.heroku.com/articles/django-assets
+# Il est important de créer un répertoire static contenant un fichier
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
