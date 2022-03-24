@@ -152,3 +152,7 @@ if DEBUG is False:
     SECURE_SSL_REDIRECT = True
     # Le cookie de session n’est envoyé que pour des connexions HTTPS
     SESSION_COOKIE_SECURE = True
+    # Très intéressant, voir:
+    # https://docs.djangoproject.com/fr/4.0/ref/middleware/#referrer-policy
+    # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
+    SECURE_REFERRER_POLICY = 'same-origin'
