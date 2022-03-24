@@ -146,4 +146,7 @@ STATICFILES_DIRS = (
 )
 
 if DEBUG is False:
+    # Le cookie CSRF n’est envoyé que pour des connexions HTTPS
     CSRF_COOKIE_SECURE = True
+    # Si True, SecurityMiddleware redirige les requêtes non HTTPS vers HTTPS
+    SECURE_SSL_REDIRECT = True
