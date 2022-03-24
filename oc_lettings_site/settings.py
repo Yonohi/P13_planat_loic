@@ -150,3 +150,5 @@ if DEBUG is False:
     CSRF_COOKIE_SECURE = True
     # Si True, SecurityMiddleware redirige les requêtes non HTTPS vers HTTPS
     SECURE_SSL_REDIRECT = True
+    # Le cookie de session n’est envoyé que pour des connexions HTTPS
+    SESSION_COOKIE_SECURE = True
