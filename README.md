@@ -76,32 +76,46 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
 
-###Perso:
-enlever heroku config:set DISABLE_COLLECTSTATIC=1 si besoin de mettre des statics
-il faut create avant le déploiement sur heroku juste une fois
-variables:
-DOCKER_LOGIN
-DOCKER_PASSWORD
-HEROKU_API_KEY
-HEROKU_APP_NAME
-la secret_key est nécessaire pour le déploiement 
-(sans celle-ci le pipeline passerait mais pas lorsque l'on irait sur le site)
-SECRET_KEY
+### CircleCI & Déploiement:
+Pour commencer s'inscrire sur CircleCI, Docker et Heroku :   
+- CircleCI: `https://circleci.com/signup/`
+- Docker: `https://hub.docker.com/signup`
+- Heroku: `https://signup.heroku.com`   
 
-Procfile: https://devcenter.heroku.com/articles/release-phase
+Ensuite, après un fork du projet sur votre compte GitHub, vous devez suivre ce projet sur CircleCI en utilisant le fichier `config.yml` présent dans `.circleci`.  
+Il faut maintenant créer une application sur heroku soit sur le site, soit avec la commande :   
+`heroku create <nomapp>`   
+On vous demandera d'être connecté si ce n'est pas fait :   
+`heroku login`  
+Sur Circle CI il faudra ajouter quelques variables qui vous seront propres.  
+Pour cela allez dans le projet sur CircleCI puis Settings et enfin Environment Variables et ajoutez :
+- DOCKER_LOGIN
+- DOCKER_PASSWORD
+- HEROKU_API_KEY
+- HEROKU_APP_NAME (nom de l'application donné plus tôt)
+- SECRET_KEY
 
-pour avoir HEROKU_API_KEY:
-soit `heroku authorizations:create` pour la production 
-soit `heroku auth:token` pour le développement
+Pour avoir HEROKU_API_KEY :
+- soit `heroku authorizations:create` pour la production (par défaut pas d'expiration)
+- soit `heroku auth:token` pour le développement (expire au bout d'un an)
 
-pour la secret key:
-on pourra donner une valeur via une variable sur circleci faisant lien avec
-`heroku config:set SECRET_KEY=$SECRET_KEY`
+La SECRET_KEY est nécessaire pour le déploiement 
+(sans celle-ci le pipeline passerait, mais pas lorsque l'on irait sur le site)
 
 pour voir si tout est bon pour le deploiement : 
 `heroku run python manage.py check --deploy -a oc-lettings-lp`
 
+
+#### Surveillance
 Pour sentry, 
-il faut lancer le projet avec `python3 manage.py runserver`
-ensuite après avoir créer un compte sur Sentry, aller dans Projects puis Create Projects
-à ce moment là on peut récupérer le DSN affiché et le mettre dans nos variablesil faut un DSN qui est trouvable après s'être inscrit en allant dans settings --> project --> client keys
+Il faut au préalable lancer le projet avec `python3 manage.py runserver`  
+Ensuite après avoir créé un compte sur Sentry: `https://sentry.io/signup/`
+aller dans la partie Projects puis Create Projects
+à ce moment-là on vous donnera du code à écrire (ne le faite pas tout est fait)
+conservez seulement le DSN.  
+Si vous vous êtes trompé vous pouvez le récupérer 
+ en allant dans Settings --> Projects --> Client keys
+Mettez-le à la place de celui indiqué (réfléchir si dans variables circleci)
+
+Petit + : Un DSN (Data Source Name) est une structure de donnée utilisée pour décrire une connexion à une source de donnée.  
+Dans le cas de Sentry il est sous la forme : {PROTOCOL}://{PUBLIC_KEY}:{SECRET_KEY}@{HOST}{PATH}/{PROJECT_ID}  

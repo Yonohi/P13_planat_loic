@@ -144,3 +144,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+if DEBUG == False:
+    CSRF_COOKIE_SECURE = True
