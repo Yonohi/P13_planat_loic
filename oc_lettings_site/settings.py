@@ -162,3 +162,7 @@ if DEBUG is False:
     # (pour une certaine période de temps)
     # Cela réduit l’exposition à certaines attaques de type « homme du milieu »
     SECURE_HSTS_SECONDS = 60
+    # voir :
+    # https://docs.djangoproject.com/fr/4.0/ref/middleware/#django.middleware.security.SecurityMiddleware
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
