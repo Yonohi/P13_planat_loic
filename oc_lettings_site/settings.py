@@ -155,4 +155,10 @@ if DEBUG is False:
     # Très intéressant, voir:
     # https://docs.djangoproject.com/fr/4.0/ref/middleware/#referrer-policy
     # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
+    # Remarque : on peut voir le referer dans l'inspecteur web (réseau et en-tête)
     SECURE_REFERRER_POLICY = 'same-origin'
+    # Défini l'en-tête HSTS
+    # Refuse les connexions à notre nom de domaine si la connexion n’est pas sécurisée
+    # (pour une certaine période de temps)
+    # Cela réduit l’exposition à certaines attaques de type « homme du milieu »
+    SECURE_HSTS_SECONDS = 60
