@@ -145,5 +145,5 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-if DEBUG == False:
+if DEBUG is False:
     CSRF_COOKIE_SECURE = True
