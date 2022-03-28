@@ -94,6 +94,7 @@ Pour cela allez dans le projet sur CircleCI puis Settings et enfin Environment V
 - HEROKU_API_KEY : Voir ci-dessous pour l'obtenir
 - HEROKU_APP_NAME : Nom de l'application donné plus tôt
 - SECRET_KEY : La clé secrète du projet django
+- SENTRY_DSN : Le DSN fourni lors de la liaison entre Sentry et notre projet (Voir Surveillance)   
 
 Pour avoir HEROKU_API_KEY :
 - soit `heroku authorizations:create` pour la production (par défaut pas d'expiration)
@@ -114,10 +115,9 @@ Il faut au préalable lancer le projet avec `python3 manage.py runserver`
 Ensuite après avoir créé un compte sur Sentry: `https://sentry.io/signup/`  
 Aller dans la partie Projects puis Create Projects  
 A ce moment-là on vous donnera du code à écrire (ne le faite pas tout est fait)
-conservez seulement le DSN.  
-Si vous vous êtes trompé vous pouvez le récupérer 
+conservez seulement le DSN et mettez-le dans la variable SENTRY_DSN.  
+Si vous vous êtes trompé, vous pouvez le récupérer 
  en allant dans Settings --> Projects --> Client keys  
-Mettez-le à la place de celui indiqué (réfléchir si dans variables circleci)
 
 Petit + :  
 Un DSN (Data Source Name) est une structure de donnée utilisée pour décrire une connexion à une source de donnée.  
