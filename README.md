@@ -108,6 +108,7 @@ Récupération de l'image du registre (Dcoker) :
 
 Pour voir si tout est bon pour le deploiement : 
 `heroku run python manage.py check --deploy -a <nomappheroku>`
+Vous pouvez ensuite vous rendre à l'adresse `http://127.0.0.1:8000/`    
 
 #### Surveillance
 Utilisation de Sentry :  
