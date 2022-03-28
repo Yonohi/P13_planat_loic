@@ -82,18 +82,18 @@ Pour commencer s'inscrire sur CircleCI, Docker et Heroku :
 - Docker: `https://hub.docker.com/signup`
 - Heroku: `https://signup.heroku.com`   
 
-Ensuite, après un fork du projet sur votre compte GitHub, vous devez suivre ce projet sur CircleCI en utilisant le fichier `config.yml` présent dans `.circleci`.  
+Ensuite, après avoir mis le projet sur votre compte GitHub, vous devez le suivre sur CircleCI en utilisant le fichier `config.yml` présent dans `.circleci`.  
 Il faut maintenant créer une application sur heroku soit sur le site, soit avec la commande :   
 `heroku create <nomapp>`   
 On vous demandera d'être connecté si ce n'est pas fait :   
 `heroku login`  
 Sur Circle CI il faudra ajouter quelques variables qui vous seront propres.  
 Pour cela allez dans le projet sur CircleCI puis Settings et enfin Environment Variables et ajoutez :
-- DOCKER_LOGIN
-- DOCKER_PASSWORD
-- HEROKU_API_KEY
-- HEROKU_APP_NAME (nom de l'application donné plus tôt)
-- SECRET_KEY
+- DOCKER_LOGIN : Votre nom d'utilisateur sur Docker
+- DOCKER_PASSWORD : Votre mot de passe sur Docker
+- HEROKU_API_KEY : Voir ci-dessous pour l'obtenir
+- HEROKU_APP_NAME : Nom de l'application donné plus tôt
+- SECRET_KEY : La clé secrète du projet django
 
 Pour avoir HEROKU_API_KEY :
 - soit `heroku authorizations:create` pour la production (par défaut pas d'expiration)
@@ -102,20 +102,23 @@ Pour avoir HEROKU_API_KEY :
 La SECRET_KEY est nécessaire pour le déploiement 
 (sans celle-ci le pipeline passerait, mais pas lorsque l'on irait sur le site)
 
-pour voir si tout est bon pour le deploiement : 
-`heroku run python manage.py check --deploy -a oc-lettings-lp`
+Récupération de l'image du registre (Dcoker) :  
+`docker run -d -p 8000:8000 <imagedocker>`  
 
+Pour voir si tout est bon pour le deploiement : 
+`heroku run python manage.py check --deploy -a <nomappheroku>`
 
 #### Surveillance
-Pour sentry, 
-Il faut au préalable lancer le projet avec `python3 manage.py runserver`  
-Ensuite après avoir créé un compte sur Sentry: `https://sentry.io/signup/`
-aller dans la partie Projects puis Create Projects
-à ce moment-là on vous donnera du code à écrire (ne le faite pas tout est fait)
+Utilisation de Sentry :  
+Il faut au préalable lancer le projet avec `python3 manage.py runserver`    
+Ensuite après avoir créé un compte sur Sentry: `https://sentry.io/signup/`  
+Aller dans la partie Projects puis Create Projects  
+A ce moment-là on vous donnera du code à écrire (ne le faite pas tout est fait)
 conservez seulement le DSN.  
 Si vous vous êtes trompé vous pouvez le récupérer 
- en allant dans Settings --> Projects --> Client keys
+ en allant dans Settings --> Projects --> Client keys  
 Mettez-le à la place de celui indiqué (réfléchir si dans variables circleci)
 
-Petit + : Un DSN (Data Source Name) est une structure de donnée utilisée pour décrire une connexion à une source de donnée.  
+Petit + :  
+Un DSN (Data Source Name) est une structure de donnée utilisée pour décrire une connexion à une source de donnée.  
 Dans le cas de Sentry il est sous la forme : {PROTOCOL}://{PUBLIC_KEY}:{SECRET_KEY}@{HOST}{PATH}/{PROJECT_ID}  
