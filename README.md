@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/Yonohi/P13_planat_loic/tree/main.svg?style=svg)](https://circleci.com/gh/Yonohi/P13_planat_loic/tree/main)
 ## Résumé
 
 Site web d'Orange County Lettings
@@ -77,6 +78,12 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
 
 ### CircleCI & Déploiement:
+L'idée ici est d'avoir un pipeline CI/CD nous permettant d'automatiser certaines tâches et d'avancer sereinement dans notre projet.  
+Pour cela le pipeline est composé des parties suivantes :
+- test et linting, vérifiant qu'il n'y a pas de régression au niveau du code et qu'il suit les bonnes pratiques d'écriture.  
+- conteneurisation, mettant notre projet dans des conteneurs docker accessibles.  
+- déploiement sur Heroku, mettant en ligne notre site.  
+
 Pour commencer s'inscrire sur CircleCI, Docker et Heroku :   
 - CircleCI: `https://circleci.com/signup/`
 - Docker: `https://hub.docker.com/signup`
@@ -105,12 +112,12 @@ La SECRET_KEY est nécessaire pour le déploiement
 
 Récupération de l'image du registre (Dcoker) :  
 `docker run -d -p 8000:8000 <imagedocker>`  
+Vous pouvez ensuite vous rendre à l'adresse `http://127.0.0.1:8000/`  
 
 Pour voir si tout est bon pour le deploiement : 
 `heroku run python manage.py check --deploy -a <nomappheroku>`
-Vous pouvez ensuite vous rendre à l'adresse `http://127.0.0.1:8000/`    
 
-#### Surveillance
+### Surveillance
 Utilisation de Sentry :  
 Il faut au préalable lancer le projet avec `python3 manage.py runserver`    
 Ensuite après avoir créé un compte sur Sentry: `https://sentry.io/signup/`  
