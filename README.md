@@ -84,9 +84,9 @@ Pour cela le pipeline est composé des parties suivantes :
 - conteneurisation, mettant notre projet dans des conteneurs docker accessibles.  
 - déploiement sur Heroku, mettant en ligne notre site.  
 
-Pour commencer s'inscrire sur CircleCI, Docker et Heroku :   
+Pour commencer s'inscrire sur CircleCI, DockerHub et Heroku :   
 - CircleCI: `https://circleci.com/signup/`
-- Docker: `https://hub.docker.com/signup`
+- DockerHub: `https://hub.docker.com/signup`
 - Heroku: `https://signup.heroku.com`   
 
 Ensuite, après avoir mis le projet sur votre compte GitHub, vous devez le suivre sur CircleCI en utilisant le fichier `config.yml` présent dans `.circleci`.  
